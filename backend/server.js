@@ -9,19 +9,19 @@ const cors = require('cors')
 const app = express()
 
 //middleware
-// Allow requests from the Vercel frontend domain
-const allowedOrigins = ['https://orbital23-mod-stop1.vercel.app'];
-app.use(cors({
-  origin: (origin, callback) => {
-    if (allowedOrigins.includes(origin) || !origin) {
-      console.log('vercel allowed')
-      callback(null, true);
-    } else {
-      console.log('vercel not allowed')
-      callback(new Error('Not allowed by CORS'));
-    }
-  }
-}));
+// // Allow requests from the Vercel frontend domain
+// const allowedOrigins = ['https://orbital23-mod-stop1.vercel.app'];
+// app.use(cors({
+//   origin: (origin, callback) => {
+//     if (allowedOrigins.includes(origin) || !origin) {
+//       console.log('vercel allowed')
+//       callback(null, true);
+//     } else {
+//       console.log('vercel not allowed')
+//       callback(new Error('Not allowed by CORS'));
+//     }
+//   }
+// }));
 
 app.use(express.json())
 
