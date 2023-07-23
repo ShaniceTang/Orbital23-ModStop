@@ -3,11 +3,24 @@ require('dotenv').config()
 const express = require('express')
 const mongoose = require('mongoose')
 const userRoutes = require('./routes/user')
+const cors = require('cors')
 
 //express app
 const app = express()
 
 //middleware
+// Allow requests from the Vercel frontend domain
+const allowedOrigins = ['https://orbital23-mod-stop1.vercel.app/'];
+app.use(cors({
+  origin: (origin, callback) => {
+    if (allowedOrigins.includes(origin) || !origin) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  }
+}));
+
 app.use(express.json())
 
 //will fire everytime a request comes in
@@ -31,5 +44,7 @@ mongoose.connect(process.env.MONGO_URI)
     .catch((error)=>{
         console.log(error)
     })
+
+
 
 
