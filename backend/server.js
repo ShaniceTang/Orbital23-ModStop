@@ -9,18 +9,7 @@ const cors = require('cors')
 const app = express()
 
 //middleware
-const allowedOrigins = ['https://orbital23-mod-stop1-frontend.vercel.app'];
-app.use(cors({
-    origin: function (origin, callback) {
-      if (allowedOrigins.includes(origin) || !origin) {
-        console.log('vercel allowed')
-        callback(null, true);
-      } else {
-        console.log('vercel not allowed')
-        callback(new Error('Not allowed by CORS'));
-      }
-    }
-  }));
+app.use(cors());
 
 //will fire everytime a request comes in
 app.use((req, res, next)=>{
