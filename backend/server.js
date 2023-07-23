@@ -10,7 +10,7 @@ const app = express()
 
 //middleware
 // Allow requests from the Vercel frontend domain
-const allowedOrigins = ['https://orbital23-mod-stop1.vercel.app/'];
+const allowedOrigins = ['https://orbital23-mod-stop1.vercel.app'];
 app.use(cors({
   origin: (origin, callback) => {
     if (allowedOrigins.includes(origin) || !origin) {
