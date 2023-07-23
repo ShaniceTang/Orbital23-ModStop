@@ -9,7 +9,7 @@ const cors = require('cors')
 const app = express()
 
 //middleware
-app.use(cors());
+app.use(express.json());
 
 //will fire everytime a request comes in
 app.use((req, res, next)=>{
