@@ -33,7 +33,7 @@ app.use((req, res, next)=>{
 
 
 //routes
-app.use('https://orbital23-mod-stop1.vercel.app/api/user', userRoutes)
+app.use('/api/user', userRoutes)
 
 //connect to db
 mongoose.connect(process.env.MONGO_URI)
