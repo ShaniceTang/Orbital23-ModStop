@@ -8,19 +8,20 @@ const cors = require('cors')
 //express app
 const app = express()
 
-//middleware
-const allowedOrigins = ['https://modstop-frontend.onrender.com'];
+// //middleware
+// const allowedOrigins = ['https://modstop-frontend.onrender.com'];
 
-// Enable CORS for specific origins
-app.use(cors({
-  origin: function (origin, callback) {
-    if (allowedOrigins.includes(origin) || !origin) {
-      callback(null, true);
-    } else {
-      callback(new Error('Not allowed by CORS'));
-    }
-  }
-}));
+// // Enable CORS for specific origins
+// app.use(cors({
+//   origin: function (origin, callback) {
+//     if (allowedOrigins.includes(origin) || !origin) {
+//       callback(null, true);
+//     } else {
+//       callback(new Error('Not allowed by CORS'));
+//     }
+//   }
+// }));
+app.use(express.json())
 
 //will fire everytime a request comes in
 app.use((req, res, next)=>{
