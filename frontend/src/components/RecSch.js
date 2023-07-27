@@ -100,7 +100,7 @@ const RecSch = () => {
         console.log('Dropped into:', droppedBox[4]);
         draggedBox=`sem${draggedBox[4]}`
         droppedBox=`sem${droppedBox[4]}`
-        const response = await fetch('/api/user/updateschedule', {
+        const response = await fetch(`${URL}/api/user/updateschedule`, {
                     method: 'POST',
                     headers: {'Content-Type': 'application/json'},
                     body: JSON.stringify({ email, draggableText, draggedBox, droppedBox })
