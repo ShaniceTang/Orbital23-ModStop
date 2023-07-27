@@ -12,11 +12,13 @@ import Majors from './pages/Majors';
 import MajorDetails from './pages/MajorDetails';
 import { ThemeProvider } from './context/recContext';
 
+export const URL = process.env.REACT_APP_URL;
+export const rootUrl = process.env.NODE_ENV === 'production' ? 'https://modstop-backend.onrender.com' : 'http://localhost:4000'
+
+
 function App() {
   const {user} = useAuthContext()
-  
-  
-
+ 
   return (
     <div className="App">
       <BrowserRouter>
@@ -63,5 +65,5 @@ function App() {
 }
 
 export default App;
-export const URL = process.env.URL;
+
 
