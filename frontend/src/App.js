@@ -15,6 +15,7 @@ import { ThemeProvider } from './context/recContext';
 function App() {
   const {user} = useAuthContext()
   
+  
 
   return (
     <div className="App">
@@ -61,5 +62,6 @@ function App() {
   );
 }
 
-export default {App, URL};
+export default App;
+export const URL = process.env.URL;
 
