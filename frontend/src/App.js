@@ -12,9 +12,7 @@ import Majors from './pages/Majors';
 import MajorDetails from './pages/MajorDetails';
 import { ThemeProvider } from './context/recContext';
 
-export const URL = process.env.REACT_APP_URL;
-export const rootUrl = process.env.NODE_ENV === 'production' ? 'https://modstop-backend.onrender.com' : 'http://localhost:4000'
-
+export const URL = "https://modstop-backend.onrender.com";
 
 function App() {
   const {user} = useAuthContext()
