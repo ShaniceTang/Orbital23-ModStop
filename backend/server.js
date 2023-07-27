@@ -1,4 +1,5 @@
 require('dotenv').config()
+console.log(process.env)
 
 const express = require('express')
 const mongoose = require('mongoose')
@@ -8,22 +9,32 @@ const cors = require('cors')
 //express app
 const app = express()
 
-// //middleware
-// const allowedOrigins = ['https://modstop-frontend.onrender.com'];
+//middleware
+app.use(express.json())
 
-// // Enable CORS for specific origins
-// app.use(cors({
-//   origin: function (origin, callback) {
-//     if (allowedOrigins.includes(origin) || !origin) {
+//cors
+//const allowedOrigins = ['https://frontend-modstop.onrender.com/', "http://localhost:3000/"];
+const isProduction = process.env.NODE_ENV === 'production';
+
+const allowedOrigins = isProduction ? ['https://frontend-modstop.onrender.com/'] : true;
+
+
+const corsOptions = {
+  origin: allowedOrigins,
+//   (origin, callback) => {
+//     if (allowedOrigins.indexOf(origin) !== -1 || !origin) {
 //       callback(null, true);
 //     } else {
 //       callback(new Error('Not allowed by CORS'));
 //     }
-//   }
-// }));
-app.use(express.json())
+//   },
+  credentials: true,
+  optionsSuccessStatus: 200,
+};
 
-//will fire everytime a request comes in
+app.use(cors(corsOptions));
+
+//will fire everytime a new request comes in
 app.use((req, res, next)=>{
     console.log(req.path, req.method)
     next()
@@ -44,7 +55,5 @@ mongoose.connect(process.env.MONGO_URI)
     .catch((error)=>{
         console.log(error)
     })
-
-
 
 
