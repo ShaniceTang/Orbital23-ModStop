@@ -14,6 +14,7 @@ import { ThemeProvider } from './context/recContext';
 
 function App() {
   const {user} = useAuthContext()
+  const URL = process.env.BASE_URL
 
   return (
     <div className="App">
